@@ -1,9 +1,13 @@
-package com.bmstu.stanislav.legendarymessenger;
+package com.bmstu.stanislav.legendarymessenger.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.bmstu.stanislav.legendarymessenger.R;
+import com.bmstu.stanislav.legendarymessenger.adapter.ListOfNumbersAdapter;
+import com.bmstu.stanislav.legendarymessenger.pojo.ListItem;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -18,13 +22,14 @@ public class ListActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.listView);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, initData());
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, initData());
 
+        ListOfNumbersAdapter adapter = new ListOfNumbersAdapter(this, initData());
         listView.setAdapter(adapter);
     }
 
-    private LinkedList<String> initData() {
-        LinkedList<String> linkedList = new LinkedList<>();
+    private LinkedList<ListItem> initData() {
+        LinkedList<ListItem> linkedList = new LinkedList<>();
 
         List<String> units = new ArrayList<>();
         List<String> dozens = new ArrayList<>();
@@ -77,11 +82,11 @@ public class ListActivity extends AppCompatActivity {
                 int max = (j < 0) ? 19 : 9;
                 for (int k = 0; k < max; k++) {
                     String unit = units.get(k);
-                    linkedList.add(hundred + dozen + unit);
+                    linkedList.add(new ListItem(hundred + dozen + unit));
                 }
-                if (j < 7) linkedList.add(hundred + dozens.get(j + 1));
+                if (j < 7) linkedList.add(new ListItem(hundred + dozens.get(j + 1)));
             }
-            linkedList.add(hundreds.get(i + 1));
+            linkedList.add(new ListItem(hundreds.get(i + 1)));
         }
 
         return linkedList;

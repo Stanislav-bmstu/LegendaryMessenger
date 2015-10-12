@@ -1,8 +1,10 @@
-package com.bmstu.stanislav.legendarymessenger;
+package com.bmstu.stanislav.legendarymessenger.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.bmstu.stanislav.legendarymessenger.R;
 
 public class MainActivity extends Activity {
     @Override

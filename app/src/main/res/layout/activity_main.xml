@@ -9,5 +9,5 @@
         android:layout_height="fill_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/mail_logo" />
+        android:src="@drawable/mail_logo2" />
 </LinearLayout>
